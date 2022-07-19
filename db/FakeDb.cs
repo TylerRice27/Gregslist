@@ -11,9 +11,9 @@ namespace Gregslist.db
 
         public static List<Car> Cars { get; set; } = new List<Car>()
         {
-        new Car("Honda"),
-        new Car("BMW"),
-        new Car("Ferrari")
+        new Car("Honda", "Civic"),
+        new Car("BMW", "M5"),
+        new Car("Ferrari", "Aventdor")
         };
 
     }
