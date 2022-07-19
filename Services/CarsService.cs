@@ -15,19 +15,40 @@ namespace Gregslist.Services
             return FakeDb.Cars;
         }
 
-        internal Car Delete(string id)
+        internal Car Get(string id)
+
         {
-            throw new NotImplementedException();
+            Car found = FakeDb.Cars.Find(c => c.Id == id);
+            if (found == null)
+            {
+                throw new Exception("Invaild Id");
+            }
+            return found;
         }
+
 
         internal Car Create(Car carData)
         {
-            throw new NotImplementedException();
+            FakeDb.Cars.Add(carData);
+            return carData;
         }
 
         internal Car Update(Car carData)
         {
-            throw new NotImplementedException();
+
+            Car original = Get(carData.Id);
+
+            original.Make = carData.Make ?? original.Make;
+            original.Model = carData.Model ?? original.Model;
+            original.Price = carData.Price ?? original.Price;
+
+            return original;
+        }
+        internal Car Delete(string id)
+        {
+            Car found = Get(id);
+            FakeDb.Cars.Remove(found);
+            return found;
         }
     }
 }
