@@ -73,7 +73,40 @@ namespace Gregslist.Controllers
             }
         }
 
+        [HttpPut("{id}")]
 
+        public ActionResult<Car> Edit(string id, [FromBody] Car carData)
+        {
+            try
+            {
+                carData.Id = id;
+                Car update = _cs.Update(carData);
+                return Ok(update);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+
+
+        }
+
+        [HttpDelete("(id)")]
+        public ActionResult<Car> Delete(string id)
+        {
+
+            try
+            {
+                Car deleteCar = _cs.Delete(id);
+                return Ok(deleteCar);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
 
     }
 }

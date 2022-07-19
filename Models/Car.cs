@@ -21,7 +21,7 @@ namespace Gregslist.Models
 
         public string Model { get; set; }
 
-        public int Price { get; set; }
+        public int? Price { get; set; }
     }
 
 }
