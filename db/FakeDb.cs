@@ -16,5 +16,11 @@ namespace Gregslist.db
         new Car("Ferrari", "Aventdor", 300)
         };
 
+        public static List<House> Houses { get; set; } = new List<House>()
+        {
+        new House("902nd N street", 3, 374),
+        new House("2nd West Coast Lane", 1, 823)
+        };
+
     }
 }
